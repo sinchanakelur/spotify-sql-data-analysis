@@ -2,7 +2,9 @@
 -- ADVANCED LEVEL QUERIES
 -- =========================================
 
--- 1. Find the top 3 most-viewed tracks for each artist (Window Function)
+
+-- 1. Top 3 most-viewed tracks for each artist
+-- Uses ROW_NUMBER() window function to rank tracks within each artist
 SELECT artist, track, views
 FROM (
     SELECT artist, track, views,
@@ -12,7 +14,8 @@ FROM (
 WHERE rn <= 3;
 
 
--- 2. Find tracks where the liveness score is above the average
+-- 2. Tracks with liveness above average
+-- Compares each track's liveness with overall average using a subquery
 SELECT track, liveness
 FROM spotify
 WHERE liveness > (
@@ -21,7 +24,8 @@ WHERE liveness > (
 );
 
 
--- 3. Difference between highest and lowest energy per album (CTE)
+-- 3. Energy variation per album (CTE)
+-- Calculates difference between highest and lowest energy for each album
 WITH cte AS (
     SELECT 
         album,
@@ -37,7 +41,8 @@ FROM cte
 ORDER BY energy_diff DESC;
 
 
--- 4. Tracks where energy-to-liveness ratio is greater than 1.2
+-- 4. Tracks with high energy-to-liveness ratio
+-- Filters tracks where energy/liveness ratio exceeds 1.2
 SELECT track, energy, liveness,
        energy / liveness AS ratio
 FROM spotify
@@ -46,7 +51,8 @@ WHERE liveness <> 0
 ORDER BY ratio DESC;
 
 
--- 5. Cumulative sum of likes ordered by views (Window Function)
+-- 5. Cumulative likes based on views
+-- Computes running total of likes using window function
 SELECT track, views, likes,
        SUM(likes) OVER (ORDER BY views DESC) AS cumulative_likes
 FROM spotify;
