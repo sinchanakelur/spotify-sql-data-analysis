@@ -1,4 +1,4 @@
-<img width="893" height="364" alt="image" src="https://github.com/user-attachments/assets/a52c0ab0-9814-4256-bd05-440d580f37cf" /># spotify-sql-data-analysis
+
 Spotify Data Analysis and Query Optimization using SQL
 
 ## Dataset
