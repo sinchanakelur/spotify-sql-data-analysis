@@ -68,20 +68,14 @@ CREATE INDEX idx_artist ON spotify(artist);
 
 ---
 
-### Graphical Execution Plan
+Before Index  
+![Graph Before](spotify_graphical_view_2.png)
 
-#### Before Index
+After Index  
+![Graph After](spotify_graphical_view_1.png)
 
-![Graph Before](spotify_graphical view 2.png)
-
-#### After Index
-
-![Graph After](spotify_graphical view 1.png)
-
-#### Detailed Plan
-
-![Graph Detailed](spotify_graphical view 3.png)
-
+Detailed Plan  
+![Graph Detailed](spotify_graphical_view_3.png)
 ---
 
 ##  Performance Improvement
