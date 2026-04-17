@@ -32,9 +32,7 @@ We used the EXPLAIN command to evaluate query performance when retrieving tracks
 Execution Time (E.T.): ~7 ms
 Planning Time (P.T.): ~0.17 ms
 
-📸 Refer to screenshot:
-
-EXPLAIN Before Index
+![EXPLAIN After Index](optimization/explain_after.png)
 
 ⚙️ Index Creation
 
