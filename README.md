@@ -1,84 +1,112 @@
+#  Spotify Data Analysis & Query Optimization using SQL
 
-Spotify Data Analysis and Query Optimization using SQL
+##  Objective
+
+Analyze a Spotify dataset to extract insights on track performance, artist popularity, and platform comparison using SQL.
+
+---
 
 ## Dataset
 
-- Source: Kaggle
-- Dataset Name: Spotify Dataset
-- Link:[ https://www.kaggle.com/datasets/your-link-here](https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset)
+* Source: Kaggle
+* Dataset: Spotify Tracks Dataset
+* 🔗 Add your Kaggle dataset link here
 
-Key Insights
-Identified tracks with higher Spotify engagement compared to YouTube views
-Analyzed top-performing artists and albums
-Observed relationship between energy levels and track popularity
-Achieved ~97% query performance improvement using indexing
+---
 
-SQL Concepts Used
-Filtering & Sorting
-GROUP BY & Aggregations
-Subqueries
-Common Table Expressions (CTE)
-Window Functions (ROW_NUMBER, SUM OVER)
-Query Optimization (EXPLAIN, Indexing)
+##  Key Insights
 
-Query Optimization Technique
+* Identified tracks with higher Spotify streams compared to YouTube views
+* Analyzed top-performing artists and albums
+* Explored relationships between audio features (energy, danceability) and popularity
+* Improved query performance by ~97% using indexing techniques
 
-To improve query performance, we analyzed and optimized SQL queries using indexing and execution plans.
+---
 
-🔍 Initial Performance Analysis (Before Index)
+##  SQL Concepts Used
 
-We used the EXPLAIN command to evaluate query performance when retrieving tracks based on the artist column.
+* Filtering & Sorting
+* GROUP BY & Aggregations
+* Subqueries
+* Common Table Expressions (CTE)
+* Window Functions (ROW_NUMBER, SUM OVER)
+* Query Optimization (EXPLAIN, Indexing)
 
-Execution Time (E.T.): ~7 ms
-Planning Time (P.T.): ~0.17 ms
+---
 
-![EXPLAIN After Index](optimization/explain_after.png)
+## Query Optimization Technique
 
-⚙️ Index Creation
+To improve query performance, we analyzed and optimized SQL queries using execution plans and indexing.
 
-To enhance performance, an index was created on the artist column:
+---
 
+### Before Optimization (EXPLAIN)
+
+* Execution Time: ~5.7 ms
+* Planning Time: ~0.16 ms
+
+![EXPLAIN Before Index](spotify_explain_before_index.png)
+
+---
+
+### Index Creation
+
+```sql
 CREATE INDEX idx_artist ON spotify(artist);
+```
 
-👉 This allows faster lookup for queries filtering by artist.
+ Indexing helps faster retrieval when filtering by artist.
 
-🚀 Performance After Optimization
+---
 
-After indexing, the same query was executed again:
+###  After Optimization
 
-Execution Time (E.T.): ~0.153 ms
-Planning Time (P.T.): ~0.152 ms
+* Execution Time: ~0.153 ms
+* Planning Time: ~0.152 ms
 
-📸 Refer to screenshot: EXPLAIN After Index
+![EXPLAIN After Index](spotify_explain_after_index.png)
 
-📊 Performance Comparison
+---
 
-The results show a significant reduction in execution time (~97% improvement) after applying indexing.
+### Graphical Execution Plan
 
-📈 Refer to performance graph screenshots
+#### Before Index
 
-💡 Conclusion
+![Graph Before](spotify_graphical view 2.png)
 
-Indexing drastically improved query efficiency by reducing execution time and optimizing data retrieval.
-This demonstrates the importance of indexing in large-scale databases for performance tuning.
+#### After Index
 
-🛠️ Technology Stack
-Database: PostgreSQL
-SQL Concepts:
-DDL, DML
-Aggregations, Joins
-Subqueries
-Window Functions
-CTE (WITH clause)
-Tools: pgAdmin 4, PostgreSQL
-▶️ How to Run the Project
-Install PostgreSQL and pgAdmin
-Create the database and table
-Import dataset (CSV)
-Execute queries from /queries folder
-Use EXPLAIN to analyze performance
-Apply indexing and compare results
-🚀 Future Improvements
-Build dashboards using Power BI / Tableau
-Expand dataset for scalability testing
-Apply advanced query optimization techniques
+![Graph After](spotify_graphical view 1.png)
+
+#### Detailed Plan
+
+![Graph Detailed](spotify_graphical view 3.png)
+
+---
+
+##  Performance Improvement
+
+* Significant reduction in execution time (~97%)
+* Efficient data retrieval using indexing
+* Reduced full table scans
+
+---
+
+##  How to Run
+
+1. Install PostgreSQL and pgAdmin
+2. Create database and table
+3. Import dataset (CSV)
+4. Execute queries from `/queries` folder
+5. Use `EXPLAIN` to analyze performance
+6. Apply indexing and compare results
+
+---
+
+##  Future Improvements
+
+* Build dashboards using Power BI / Tableau
+* Expand dataset for scalability testing
+* Apply advanced optimization techniques
+
+---
