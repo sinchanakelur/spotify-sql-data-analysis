@@ -10,7 +10,7 @@ Analyze a Spotify dataset to extract insights on track performance, artist popul
 
 * Source: Kaggle
 * Dataset: Spotify Tracks Dataset
-* 🔗 Add your Kaggle dataset link here
+* [🔗 Add your Kaggle dataset link here](https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset)
 
 ---
 
